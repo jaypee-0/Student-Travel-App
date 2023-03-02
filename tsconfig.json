@@ -4,7 +4,6 @@
     "strict": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "downlevelIteration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -15,20 +14,9 @@
     "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
-    "paths": {
-      "@/*": ["./src/*"],
-      "@/screen": ["./src/screens/*"],
-      "@/assets": ["./src/assets/*"],
-      "@/constants": ["./src/constants/*"],
-      "@/hooks": ["./src/hooks/*"],
-      "@/services": ["./src/services/*"],
-      "@/slices": ["./src/slices/*"],
-      "@/store": ["./src/store/*"],
-    },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strictNullChecks": true,
     "target": "ES2020"
-  },
-  "include": ["src", "./src/**/*.ts", "./src/**/*.tsx"]
+  }
 }

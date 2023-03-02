@@ -21,7 +21,10 @@ import ResetOtpPage from "../screens/Auth/ResetOtpPage";
 const Stack = createStackNavigator();
 export default function Auth() {
     return (
-        <NavigationContainer>
+        <NavigationContainer
+        linking={LinkingConfiguration}
+        theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+       
             <Stack.Navigator>
                 {/* Pre Authentication */}
                 <Stack.Screen name="OnBoard" component={OnBoardScreen} options={{ headerShown: false }} />
