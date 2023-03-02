@@ -15,18 +15,14 @@ export const authSlice = createSlice({
         },
         setID: (state, action) => {
             state.id = action.payload;
-        },
-        setsignUpToken: (state, action) => {
-            state.signUpToken = action.payload;
         }
     }
 });
 
 
-export const { setToken, setID, setsignUpToken } = authSlice.actions;
+export const { setToken, setID } = authSlice.actions;
 
-export const selectToken = (state) => state.auth.token;
-export const selectID = (state) => state.auth.id;
-export const selectsignUpToken = (state) => state.auth.signUpToken;
+export const selectToken = (state:any) => state.auth.token;
+export const selectID = (state:any) => state.auth.id;
 
 export default authSlice.reducer;
