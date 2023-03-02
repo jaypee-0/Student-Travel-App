@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "wiping-test",
-    "slug": "wiping-test",
+    "name": "sta-app",
+    "slug": "sta-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
