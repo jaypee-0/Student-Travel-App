@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   token: '',
   id: '',
-  signUpToken: ''
 };
 
 export const authSlice = createSlice({
@@ -15,12 +14,17 @@ export const authSlice = createSlice({
         },
         setID: (state, action) => {
             state.id = action.payload;
+        },
+        logout: (state) => {
+            state.token = '';
+            state.id = '';
         }
     }
 });
 
 
-export const { setToken, setID } = authSlice.actions;
+export const { setToken, setID, logout } = authSlice.actions;
+
 
 export const selectToken = (state:any) => state.auth.token;
 export const selectID = (state:any) => state.auth.id;

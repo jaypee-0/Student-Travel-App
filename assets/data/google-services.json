@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "327441134275",
+    "project_id": "sta-app-23df1",
+    "storage_bucket": "sta-app-23df1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327441134275:android:f526a5cf1d89f4ef2ae876",
+        "android_client_info": {
+          "package_name": "com.jaypee.staapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327441134275-iuaou2er3m1girbfa4uv5flfbvqqtu4s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_FEYSP50zdtcH0397MS2Up4J6aunhDH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327441134275-iuaou2er3m1girbfa4uv5flfbvqqtu4s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

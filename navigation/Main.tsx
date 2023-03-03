@@ -1,93 +1,139 @@
-import React from "react";
-import { Animated, Dimensions, Image, View, Platform, ColorSchemeName } from "react-native";
-import { DarkTheme, DefaultTheme, NavigationContainer } from "@react-navigation/native";
-import { FontAwesome } from '@expo/vector-icons';
+import React from 'react'
+import { StyleSheet, Dimensions, Image, View, Platform, ColorSchemeName } from 'react-native'
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import { Entypo, FontAwesome, FontAwesome5 } from '@expo/vector-icons'
+import { BlurView } from 'expo-blur';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { CardStyleInterpolators, createStackNavigator } from '@react-navigation/stack'
+import { RootStackParamList, RootTabParamList } from '../types'
 
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 // Bottom Tab Screens
-//import HomeScreen from "../screens/BottomTabs/HomeScreen"; // As Chat
-//import Discovery from "../screens/BottomTabs/DiscoveryScreen";
-//import Nearby from "../screens/BottomTabs/NearbyScreen";
-//import RingAll from "../screens/BottomTabs/RingAllScreen";
-//import Profile from "../screens/BottomTabs/ProfileScreen";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../types";
+import LinkingConfiguration from './LinkingConfiguration'
+import TabOneScreen from '../screens/Main/BottomTabs/TabOneScreen'
+import TabTwoScreen from '../screens/Main/BottomTabs/TabTwoScreen'
+import TabThreeScreen from '../screens/Main/BottomTabs/TabThreeScreen'
+import TabFourScreen from '../screens/Main/BottomTabs/TabFourScreen'
 
-import LinkingConfiguration from './LinkingConfiguration';
 // Other Screens
+import InsightsGaming from '../screens/Main/Insights/InsightsGaming';
+import InsightsStudy from '../screens/Main/Insights/InsightsStudy';
+import InsightsSteps from '../screens/Main/Insights/InsightsSteps';
+
 
 export default function Main({ colorScheme }: { colorScheme: ColorSchemeName }) {
-    return (
-        <NavigationContainer 
-        linking={LinkingConfiguration}>
-            <RootNavigator />
-        </NavigationContainer>
-    );
+  return (
+    <NavigationContainer linking={LinkingConfiguration}>
+      <RootNavigator />
+    </NavigationContainer>
+  )
 }
 
-
-const Stack = createNativeStackNavigator<RootStackParamList>();
-
+const Stack = createStackNavigator<RootStackParamList>()
 function RootNavigator() {
   return (
-    <Stack.Navigator>
-      {/* <Stack.Screen name="Root" component={BottomTabNavigator} options={{ headerShown: false }} /> */}
+    <Stack.Navigator initialRouteName="BottomTabs">
+      <Stack.Screen
+        name="BottomTabs"
+        component={BottomTabNavigator}
+        options={{
+          headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+        }}
+      />
+      <Stack.Screen
+        name="InsightsGaming"
+        component={InsightsGaming}
+        options={{
+          headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+        }}
+      />
+      <Stack.Screen
+        name="InsightsStudy"
+        component={InsightsStudy}
+        options={{
+          headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+        }}
+      />
+      <Stack.Screen
+        name="InsightsSteps"
+        component={InsightsSteps}
+        options={{
+          headerShown: false,
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS
+        }}
+      />
     </Stack.Navigator>
-  );
+  )
 }
 
-
-// const BottomTab = createBottomTabNavigator<RootTabParamList>();
-
-// function BottomTabNavigator() {
-//   const colorScheme = useColorScheme();
-
-//   return (
-//     <BottomTab.Navigator
-//       initialRouteName="TabOne"
-//       screenOptions={{
-//         tabBarActiveTintColor: Colors[colorScheme].tint,
-//       }}>
-//       <BottomTab.Screen
-//         name="TabOne"
-//         component={TabOneScreen}
-//         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
-//           title: 'Tab One',
-//           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-//           headerRight: () => (
-//             <Pressable
-//               onPress={() => navigation.navigate('Modal')}
-//               style={({ pressed }) => ({
-//                 opacity: pressed ? 0.5 : 1,
-//               })}>
-//               <FontAwesome
-//                 name="info-circle"
-//                 size={25}
-//                 color={Colors[colorScheme].text}
-//                 style={{ marginRight: 15 }}
-//               />
-//             </Pressable>
-//           ),
-//         })}
-//       />
-//       <BottomTab.Screen
-//         name="TabTwo"
-//         component={TabTwoScreen}
-//         options={{
-//           title: 'Tab Two',
-//           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-//         }}
-//       />
-//     </BottomTab.Navigator>
-//   );
-// }
-
-// /**
-//  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-//  */
-// function TabBarIcon(props: {
-//   name: React.ComponentProps<typeof FontAwesome>['name'];
-//   color: string;
-// }) {
-//   return <FontAwesome size={30} style={{ marginBottom: -3 }} {...props} />;
-// }
+const BottomTab = createBottomTabNavigator<RootTabParamList>()
+function BottomTabNavigator() {
+  return (
+    <BottomTab.Navigator
+      initialRouteName="Home"
+      screenOptions={{
+        tabBarStyle: {
+          position: 'absolute',
+          height: 65,
+          borderTopColor: '#D9D9D9',
+          width: '94%',
+          borderWidth: 10,
+          marginLeft: '3%',
+          marginRight: '3%',
+          backgroundColor: 'transparent',
+          marginBottom: 10,
+          borderRadius: 50,
+          overflow: 'hidden',
+          display: 'flex',
+          margin: 'auto',
+        },
+        tabBarActiveBackgroundColor: '#f2f2f1',
+        tabBarInactiveBackgroundColor: '#f2f2f1',
+        tabBarLabelStyle: { fontSize: 12, borderColor: 'unset', borderWidth: 0, display: 'none' },
+        tabBarActiveTintColor: '#f2f2f1',
+        tabBarInactiveTintColor: '#f2f2f1',
+        tabBarShowLabel: false,
+        tabBarBackground: () => (
+          <BlurView tint="light" intensity={100} style={StyleSheet.absoluteFill} />
+        ),
+      }}
+      sceneContainerStyle={{ backgroundColor: 'transparent' }}
+    >
+      <BottomTab.Screen
+        name="Home"
+        component={TabOneScreen}
+        options={{
+          headerShown: false,
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ color, focused }) => <Entypo name="home" size={24} color={focused?"#643DCD":"#292D3260"} />
+        }}
+      />
+      <BottomTab.Screen
+        name="Coop"
+        component={TabTwoScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }) => <FontAwesome5 name="weight-hanging" size={24} color={focused?"#643DCD":"#292D3260"} />
+        }}
+      />
+      <BottomTab.Screen
+        name="Balance"
+        component={TabThreeScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }) => <Entypo name="wallet" size={24} color={focused?"#643DCD":"#292D3260"} />
+        }}
+      />
+      <BottomTab.Screen
+        name="Profile"
+        component={TabFourScreen}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, focused }) => <FontAwesome name="users" size={24} color={focused?"#643DCD":"#292D3260"} />
+        }}
+      />
+    </BottomTab.Navigator>
+  )
+}
