@@ -56,3 +56,5 @@ earn and redeem rewards easily.
 
 ``Video``
 
+
+https://user-images.githubusercontent.com/32205725/222884641-2b6a3e9d-5dd8-4f9e-91fc-8fc98ecc7d27.mp4
