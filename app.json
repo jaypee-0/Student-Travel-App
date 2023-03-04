@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "sta-app",
+    "name": "Student Travel",
     "slug": "sta-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/splashlogo.png",
+    "icon": "./assets/images/logo.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -23,7 +23,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/logo.png",
         "backgroundColor": "#000000"
       },
       "package": "com.jaypee.staapp"
